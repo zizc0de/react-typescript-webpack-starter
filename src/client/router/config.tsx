@@ -27,12 +27,12 @@ export const routes: IRoute[] = [
     exact: true,
     fallback: <div>{'Loading...'}</div>,
     path: '/',
-    redirect: '/todo',
+    redirect: '/hello',
   },
   {
-    component: lazy(() => import('../components/Todo')),
+    component: lazy(() => import('../components/Hello')),
     exact: false,
     fallback: <div>{'Loading...'}</div>,
-    path: '/todo',
+    path: '/hello',
   },
 ];

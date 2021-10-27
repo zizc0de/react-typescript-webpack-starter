@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Todo: React.FC<{}> = () => {
+const Hello: React.FC<{}> = () => {
   return <>Hello World</>;
 };
 
-export default Todo;
+export default Hello;

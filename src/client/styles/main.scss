@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './abstracts/_abstract-dir';
+
+html,
+body {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 16px;
+  font-family: 'SourceSansPro';
+  scroll-behavior: smooth;
+}

@@ -1,7 +1,7 @@
 {
   "name": "react-typescript-webpack-starter",
   "version": "0.1.0",
-  "description": "Micro Frontend - Channel Incentives",
+  "description": "React Typescript Webpack Starter",
   "main": "public/index.html",
   "author": "zizcode",
   "license": "MIT",

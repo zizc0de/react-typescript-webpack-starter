@@ -1,0 +1,10 @@
+.git
+.husky
+
+*.log
+
+.env
+.env-*.example
+
+dist
+node_modules

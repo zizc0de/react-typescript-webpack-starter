@@ -1,4 +1,5 @@
 import * as path from 'path';
+import dotenv from 'dotenv';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
@@ -8,12 +9,25 @@ import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-import { Configuration as WebpackConfiguration } from 'webpack';
+import {
+  Configuration as WebpackConfiguration,
+  EnvironmentPlugin,
+  ProvidePlugin,
+} from 'webpack';
 
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
+}
+
+let envKeys: string[] = [];
+
+const env = dotenv.config({ path: './.env-client' }).parsed;
+
+if (env) {
+  const stringOfEnv = JSON.stringify(env);
+  envKeys = JSON.parse(stringOfEnv);
 }
 
 const config: Configuration = {
@@ -81,6 +95,10 @@ const config: Configuration = {
         files: './src/client',
       },
     }),
+    new ProvidePlugin({
+      process: 'process/browser',
+    }),
+    new EnvironmentPlugin(Object.keys(envKeys)),
   ],
 };
 

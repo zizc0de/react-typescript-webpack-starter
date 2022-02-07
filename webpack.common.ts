@@ -7,6 +7,8 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
+const LoadablePlugin = require('@loadable/webpack-plugin');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 import {
@@ -34,8 +36,9 @@ const config: Configuration = {
   entry: './src/client/index.tsx',
   output: {
     filename: 'js/[name].[contenthash].js',
-    path: path.join(__dirname, 'dist', 'client'),
-    publicPath: '/',
+    chunkFilename: 'js/chunk-[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist/client'),
+    publicPath: process.env.STATIC_URI || '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -79,6 +82,11 @@ const config: Configuration = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new LoadablePlugin({
+      outputAsset: false, // to avoid writing loadable-stats in the same output as client
+      writeToDisk: true,
+      filename: `${path.resolve(__dirname, 'dist')}/loadable-stats.json`,
+    }),
     new WebpackManifestPlugin({
       fileName: 'manifest.json',
     }),

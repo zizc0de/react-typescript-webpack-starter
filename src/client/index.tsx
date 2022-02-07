@@ -1,17 +1,22 @@
-import App from './App';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { loadableReady } from '@loadable/component';
+
+import App from './App';
 
 import './styles/main.scss';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+const renderApp = () => {
+  const rootContent = document.getElementById('root');
 
-  document.getElementById('root'),
-);
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    rootContent,
+  );
+};
+
+loadableReady(() => {
+  renderApp();
+});

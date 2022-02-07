@@ -1,12 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import Router from './router/Router';
-import { routes } from './router/config';
+import AppRoutes from './AppRoutes';
 
 const App: React.FC<{}> = () => (
-  <div>
-    <Router routes={routes} />
-  </div>
+  <Router>
+    <AppRoutes />
+  </Router>
 );
 
 export default App;

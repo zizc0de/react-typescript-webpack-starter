@@ -20,7 +20,7 @@ const config = {
     filename: '[name].js',
   },
   resolve: {
-    extensions: ['.ts', '.tsx'],
+    extensions: ['.ts'],
   },
   externals: [nodeExternals()],
   target: 'node',
@@ -30,7 +30,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         loader: 'ts-loader',
         options: {
           configFile: 'tsconfig.server.json',

@@ -12,7 +12,6 @@
       "dom"
     ],
     "target": "es6",
-    "jsx": "react",
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,

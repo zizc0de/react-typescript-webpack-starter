@@ -7,8 +7,6 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
-const LoadablePlugin = require('@loadable/webpack-plugin');
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 import {
@@ -77,11 +75,6 @@ const config: Configuration = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new LoadablePlugin({
-      outputAsset: false, // to avoid writing loadable-stats in the same output as client
-      writeToDisk: true,
-      filename: `${path.resolve(__dirname, 'dist')}/loadable-stats.json`,
-    }),
     new WebpackManifestPlugin({
       fileName: 'manifest.json',
     }),

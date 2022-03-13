@@ -49,7 +49,6 @@
     "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@loadable/webpack-plugin": "^5.15.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@types/cors": "^2.8.12",
